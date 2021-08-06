@@ -20,6 +20,10 @@ Teacher.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        principal: {
+            type: DataTypes.STRING,
+            defaultValue: 'Principal SkinFlute'
+        },
         email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -38,32 +42,35 @@ Teacher.init(
     },
     {
         hooks: {
-        beforeCreate: async (newReader) => {
-        try {
-            newReader.password = await bcrypt.hash(newReader.password, 10);
-            return newReader;
-        } catch (err) {
-            console.log(err);
-            return err;
-        }
+            beforeCreate: async (newTeacher) => {
+            try {
+                newTeacher.password = await bcrypt.hash(newTeacher.password, 10);
+                return newTeacher;
+            } catch (err) {
+                console.log(err);
+                return err;
+            }
+            },
+            beforeUpdate: async (updatedTeacher) => {
+            try {
+                updatedTeacher.password = await bcrypt.hash(
+                    updatedTeacher.password,
+                10
+                );
+                return updatedTeacher;
+            } catch (err) {
+                console.log(err);
+                return err;
+            }
+            },
         },
-        beforeUpdate: async (updatedReader) => {
-        try {
-            updatedReader.password = await bcrypt.hash(
-            updatedReader.password,
-            10
-            );
-            return updatedReader;
-        } catch (err) {
-            console.log(err);
-            return err;
-        }
-        },
-    },
+    
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'reader',
+    modelName: 'teacher',
     }
-)
+);
+
+module.exports = Teacher;

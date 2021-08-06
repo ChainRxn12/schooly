@@ -22,6 +22,7 @@ Student.init(
         },
         teacher: {
             type: DataTypes.INTEGER,
+            allowNull: true,
             references: {
                 model: 'teacher',
                 key: 'id'

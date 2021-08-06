@@ -2,18 +2,20 @@ const Grades = require('./Grades');
 const Student = require('./Student');
 const Teacher = require('./Teacher');
 
-// Student.belongsTo(Teacher,{
+
+
+// Teacher.hasMany(Student, {
 //     foreignKey: 'teacher',
+//     onDelete: 'NO ACTION'
 // });
 
-Teacher.hasMany(Student, {
+Student.hasOne(Teacher,{
     foreignKey: 'teacher',
 });
 
-
-
 Student.hasOne(Grades, {
-    foreignKey: 'student_id'
+    foreignKey: 'student_id',
+    onDelete: 'CASCADE'
 });
 
 Grades.belongsTo(Student, {

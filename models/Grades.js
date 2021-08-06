@@ -11,14 +11,14 @@ Grades.init(
             primaryKey: true,
             
         },
-        // student_id: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     references: {
-        //         model: 'student',
-        //         key: 'id'
-        //     },
-        // },
+        student_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'student',
+                key: 'id'
+            },
+        },
         math: {
             type: DataTypes.STRING,
             allowNull: false,

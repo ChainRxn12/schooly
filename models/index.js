@@ -12,9 +12,9 @@ Teacher.hasMany(Student, {
 
 
 
-// Student.hasOne(Grades, {
-//     foreignKey: 'student_id'
-// });
+Student.hasOne(Grades, {
+    foreignKey: 'student_id'
+});
 
 Grades.belongsTo(Student, {
     foreignKey: 'student_id'

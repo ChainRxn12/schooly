@@ -5,10 +5,15 @@ class Grades extends Model {}
 
 Grades.init(
     {
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            
+        },
         // student_id: {
         //     type: DataTypes.INTEGER,
         //     allowNull: false,
-        //     primaryKey:true,
         //     references: {
         //         model: 'student',
         //         key: 'id'

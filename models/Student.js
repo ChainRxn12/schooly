@@ -1,15 +1,12 @@
-const { UUIDV4, Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
-
 class Student extends Model {}
 
 Student.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            autoIncrement: true,  
             primaryKey: true,
-            autoIncrement: true,       
+                 
         },
         first_name: {
             type: DataTypes.STRING,
@@ -27,13 +24,13 @@ Student.init(
                 key: 'id'
             },
         },
-        grades: {
-            type: DataTypes.STRING,
-            references: {
-                model:'grades',
-                key:'id'
-            },
-        },
+        // grades: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model:'grades',
+        //         key:'id'
+        //     },
+        // },
     },
     {
     sequelize,

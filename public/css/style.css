@@ -21,7 +21,7 @@
   }
   
   header {
-    background-color: #f3f3f3;
+    background-image: url(public/images/chalkboard2.jpeg);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,7 +51,7 @@
   
   a {
     text-decoration: none;
-    color: #01497c;
+    color: #FBF7F5;
     font-weight: bold;
     transition: color 0.2s;
   }
@@ -61,7 +61,7 @@
   }
   
   .index-landing-page {
-    background-image: url('../images/bg-test.jpg');
+    background-image: url('public/images/chalkboard.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

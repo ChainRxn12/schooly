@@ -1,0 +1,20 @@
+const { Teacher } = require('../models');
+
+const teacherData = [
+    {
+        first_name: 'Billy',
+        last_name: 'Mayfield',
+        email: 'bilsters@hotmail.com',
+        password: 'pass1234',
+    },
+    {
+        first_name: 'Jeffy',
+        last_name: 'Timberland',
+        email: 'jeffthebest@gmail.com',
+        password: 'pass1234',
+    },
+];
+
+const seedTeachers = () => Teacher.bulkCreate(teacherData);
+
+module.exports = seedTeachers;

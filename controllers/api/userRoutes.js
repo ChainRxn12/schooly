@@ -1,14 +1,14 @@
 const router = require('express').Router();
-const { Teacher } = require('../../models');
+const { Teacher, Grades } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
-    const projectData = await Project.findAll({
+    const projectData = await Grades.findAll({
       include: [
         {
-          model: User,
-          attributes: ['name'],
+          model: Teacher,
+          attributes: ['username'],
         },
       ],
     });
@@ -41,10 +41,10 @@ router.post('/', async (req, res) => {
     }
   });
   
-  
+
   router.post('/login', async (req, res) => {
     try {
-      const userData = await User.findOne({ where: { email: req.body.email } });
+      const userData = await Teacher.findOne({ where: { email: req.body.email } });
   
       if (!userData) {
         res
@@ -63,7 +63,7 @@ router.post('/', async (req, res) => {
       }
   
       req.session.save(() => {
-        req.session.user_id = userData.id;
+        req.session.id = userData.id;
         req.session.logged_in = true;
         
         res.json({ user: userData, message: 'You are now logged in!' });

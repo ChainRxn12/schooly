@@ -1,3 +1,6 @@
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
+
 class Student extends Model {}
 
 Student.init(

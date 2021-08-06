@@ -4,14 +4,14 @@ const Teacher = require('./Teacher');
 
 
 
-// Teacher.hasMany(Student, {
-//     foreignKey: 'teacher',
-//     onDelete: 'NO ACTION'
-// });
-
-Student.hasOne(Teacher,{
+Teacher.hasMany(Student, {
     foreignKey: 'teacher',
+    onDelete: 'NO ACTION'
 });
+
+// Student.hasOne(Teacher,{
+//     foreignKey: 'teacher',
+// });
 
 Student.hasOne(Grades, {
     foreignKey: 'student_id',
@@ -19,7 +19,8 @@ Student.hasOne(Grades, {
 });
 
 Grades.belongsTo(Student, {
-    foreignKey: 'student_id'
+    foreignKey: 'student_id',
+    onDelete: 'CASCADE'
 });
 
 module.exports = {

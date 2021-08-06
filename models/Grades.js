@@ -5,15 +5,20 @@ class Grades extends Model {}
 
 Grades.init(
     {
-        student_id: {
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey:true,
-            references: {
-                model: 'student',
-                key: 'id'
-            },
+            primaryKey: true,
+            
         },
+        // student_id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     references: {
+        //         model: 'student',
+        //         key: 'id'
+        //     },
+        // },
         math: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -36,7 +41,7 @@ Grades.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'student',
+    modelName: 'grades',
     }
 );
 

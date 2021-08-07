@@ -25,18 +25,6 @@ router.get('/sensitive', async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
-    // gets teacher by id and includes sensitive information
-    try {
-        const teacherId = await Teacher.findByPk(req.params.id, {
-
-        });
-        res.status(200).json(teacherId);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
 router.get('/rosters', async (req, res) => {
     //populates a list of all teachers and their roster of students
     try {
@@ -49,6 +37,20 @@ router.get('/rosters', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.get('/:id', async (req, res) => {
+    // gets teacher by id and includes sensitive information
+    try {
+        const teacherId = await Teacher.findByPk(req.params.id, {
+
+        });
+        res.status(200).json(teacherId);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
 
 router.get('/rosters/:id', async (req, res) => {
     // gets teacher by id and populates student roster

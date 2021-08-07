@@ -65,6 +65,7 @@ router.put('/english/:id', async (req, res) => {
                 student_id: req.params.id,
             }
         });
+        
         res.status(200).json(updateGrade);
     } catch (err) {
         res.status(400).json(err);

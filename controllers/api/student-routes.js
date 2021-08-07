@@ -14,10 +14,10 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-    // gets student by id
+    // gets student by id and displays grades
     try {
         const studentId = await Student.findByPk(req.params.id, {
-
+            include: [{model:Grades, attributes: ['math', 'science', 'history', 'english']}]
         });
         res.status(200).json(studentId);
     } catch (err) {
@@ -56,7 +56,7 @@ router.put('/lname/:id', async (req, res) => {
 });
 
 router.put('/teacher/:id', async (req, res) => {
-    //update teacher last name by id
+    //update student's teacher
     try{
         const updateTeacher = await Student.update({teacher: req.body.new_teacher}, {
             where: {

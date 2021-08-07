@@ -5,7 +5,7 @@ router.get('/', async (req, res) => {
   try {
     const userData = await Teacher.findAll({
       attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
+      order: [['id']],
     });
 
     const users = userData.map((project) => project.get({ plain: true }));

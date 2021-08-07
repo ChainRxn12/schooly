@@ -2,7 +2,7 @@ const { Grades } = require('../models');
 
 const GradesData = [
   {
-    id: 1,
+    // id: 1,
     student_id: 1,
     math: 'A',
     history: 'B',
@@ -10,7 +10,7 @@ const GradesData = [
     english: 'A',
   },
   {
-    id: 2,
+    // id: 2,
     student_id: 2,
     math: 'C',
     history: 'A',
@@ -18,7 +18,7 @@ const GradesData = [
     english: 'B',
   },
   {
-    id: 3,
+    // id: 3,
     student_id: 3,
     math: 'B',
     history: 'B',
@@ -26,7 +26,7 @@ const GradesData = [
     english: 'D',
   },
   {
-    id: 4,
+    // id: 4,
     student_id: 4,
     math: 'A',
     history: 'A',

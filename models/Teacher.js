@@ -22,7 +22,7 @@ Teacher.init(
         },
         principal: {
             type: DataTypes.STRING,
-            defaultValue: 'Principal SkinFlute'
+            defaultValue: 'Principal Chuck'
         },
         email: {
         type: DataTypes.STRING,

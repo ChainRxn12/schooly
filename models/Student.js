@@ -20,8 +20,9 @@ Student.init(
             allowNull: false, 
             primaryKey: true,
         },
-        teacher: {
+        teacher_id: {
             type: DataTypes.INTEGER,
+            allowNull: true,
             references: {
                 model: 'teacher',
                 key: 'id'

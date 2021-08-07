@@ -5,35 +5,36 @@ class Grades extends Model {}
 
 Grades.init(
     {
-        id: {
+        // id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     primaryKey: true,
+            
+        // },
+        student_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            
+            references: {
+                model: 'student',
+                key: 'id'
+            },
         },
-        // student_id: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     references: {
-        //         model: 'student',
-        //         key: 'id'
-        //     },
-        // },
         math: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         history: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         science: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         english: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         }
     },
     {

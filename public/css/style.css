@@ -21,7 +21,7 @@
   }
   
   header {
-    background-image: url(public/images/chalkboard2.jpeg);
+    background-image: url(../images/chalkboard2.jpeg);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -59,9 +59,9 @@
   a:hover {
     color: #3d7fcf;
   }
-  
+
   .index-landing-page {
-    background-image: url('public/images/chalkboard.jpeg');
+    background-image: url('../images/chalkboard.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -229,6 +229,14 @@
     text-align: center;
     font-size: 0.8em;
     padding-top: 20px;
+  }
+
+  .signup-txt a {
+    color: #000;
+  }
+
+  .signup-txt a:hover {
+    color: #3d7fcf;
   }
 
   .container {

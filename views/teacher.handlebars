@@ -1,0 +1,33 @@
+{{!-- teacher landing page --}}
+
+<div class="teacher-page" id="teacher">
+
+    <body class="teacher-landing-page">
+        <div class="login-card">
+            <div class="login-card-header">
+                <h2>Teacher Links</h2>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <button class="roster-btn" id="roster-btn">
+                            <a class="nav-link active" href="#">Roster</a>
+                        </button>
+                    </li>
+                    <ul id="roster-el">
+
+                    </ul>
+                </ul>
+            </div>
+        </div>
+</div>
+
+</body>
+
+
+{{#if loggedIn}}
+<script src="/js/logout.js"></script>
+{{/if}}
+
+<script src="/js/teacher.js"></script>
+</body>
+
+</html>

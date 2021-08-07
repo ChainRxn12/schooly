@@ -60,7 +60,8 @@
     color: #3d7fcf;
   }
 
-  .index-landing-page {
+  .index-landing-page,
+  .teacher-landing-page {
     background-image: url('../images/chalkboard.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -103,7 +104,8 @@
   }
   
   .login-page,
-  .signup-page {
+  .signup-page,
+  .teacher-page {
     background-image: url('public/images/chalkboard2.jpeg');
     height: 100%;
     width: 100%;
@@ -294,4 +296,32 @@
     font-size: 0.8em;
     font-style: italic;
     padding: 3%;
+  }
+
+  li a{
+    color: #f7f9fb;
+    text-decoration: none;
+  }
+
+  ul {
+    list-style-type: none;
+    text-align: left;
+  }
+
+  .roster-btn {
+    width: 250px;
+    margin-left: 25px;
+  }
+
+  #roster-el {
+    padding-top: 10px;
+    padding-right: 80px;
+  }
+
+  #roster-el a {
+    color: #4c8a68;
+  }
+
+  #roster-el a:hover {
+    color: #3d7fcf;
   }

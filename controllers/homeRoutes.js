@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Principal, Student, Teacher } = require('../models');
 
 router.get('/test', (req, res) => {
-res.render('index')
+res.render('teacher')
 })
 
 router.get('/', async (req, res) => {

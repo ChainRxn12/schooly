@@ -1,0 +1,297 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body,
+  html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background-color: #f7f9fb;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #212121;
+  }
+  
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    background-image: url(../images/chalkboard2.jpeg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    padding: 20px 35px;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 80%;
+    z-index: 9999;
+  }
+  
+  header h1 {
+    font-size: 1.8em;
+  }
+  
+  header a {
+    padding-right: 1.2em;
+  }
+  
+  main {
+    flex: 1;
+    flex-direction: column;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #FBF7F5;
+    font-weight: bold;
+    transition: color 0.2s;
+  }
+  
+  a:hover {
+    color: #3d7fcf;
+  }
+
+  .index-landing-page {
+    background-image: url('../images/chalkboard.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    margin-top: 0;
+  }
+  
+  .index-card {
+    background-color: #f7f9fb;
+    opacity: 0.8;
+    width: 60%;
+    height: fit-content;
+    margin: 2em auto;
+    border-radius: 1em;
+    box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.12);
+    display: flex;
+  }
+  
+  .index-features {
+    justify-self: center;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+  
+  .feature-card {
+    margin: 1em;
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    width: min-content;
+    
+  }
+  
+  .login-page,
+  .signup-page {
+    background-image: url('public/images/chalkboard2.jpeg');
+    height: 100%;
+    width: 100%;
+    display: flex;
+    margin-top: 0;
+  }
+  
+  .login-card,
+  .signup-card {
+    background-color: #f7f9fb;
+    opacity: 0.8;
+    width: 300px;
+    height: fit-content;
+    margin: 2em auto;
+    border-radius: 1em;
+    box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.12);
+    display: flex;
+  }
+  
+  .login-card-header,
+  .signup-card-header,
+  .index-card-header {
+    margin: 0px auto;
+    text-align: center;
+    color: #212121;
+  }
+  
+  .index-card-header {
+    padding: 0px 10px;
+  }
+  
+  .login-wrap,
+  .signup-wrap,
+  .index-wrap {
+    align-self: center;
+    margin: 3px auto;
+    width: 98%;
+  }
+  
+  .login-form,
+  .signup-form,
+  .index-cta {
+    padding: 30px 5px 30px;
+  }
+  
+  .field {
+    display: block;
+    width: 85%;
+    text-align: center;
+    font-size: 0.9em;
+    font-style: italic;
+    letter-spacing: 1.2px;
+    background: rgba(240, 241, 242, 0.7);
+    padding: 10px 15px;
+    border-radius: 30px;
+    outline: none;
+    border: 2px solid #f0f1f2;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+  }
+  
+  .field:focus {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  button {
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background: #01497c;
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    width: calc((150%) / 2);
+    align-items: center;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.12);
+  }
+  
+  button:hover {
+    background-color: #3d7fcf;
+  }
+  
+  .login-btn,
+  .signup-btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .login-btn-google {
+    background: #212121;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  }
+  
+  button:focus {
+    background: #3d7fcf;
+  }
+  
+  .btn-no-style {
+    color: #FBF7F5;
+    background: none;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    text-decoration: none;
+    font-size: 100%;
+    font-weight: bold;
+    transition: color 0.2s;
+  }
+  
+  .btn-no-style:hover {
+    background: none;
+    color: #3d7fcf;
+  }
+  
+  .signup-txt {
+    text-align: center;
+    font-size: 0.8em;
+    padding-top: 20px;
+  }
+
+  .signup-txt a {
+    color: #000;
+  }
+
+  .signup-txt a:hover {
+    color: #3d7fcf;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .clear {
+    clear: both;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-content {
+    background-color: #01497c;
+    color: #fbe8a6;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  .close {
+    color: #fbe8a6;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  footer {
+    background-color: #d3d3d3;
+    display: flex;
+    justify-content: center;
+    color: #212121;
+    font-size: 0.8em;
+    font-style: italic;
+    padding: 3%;
+  }

@@ -1,0 +1,44 @@
+{{!-- login landing page --}}
+
+<div class="login-page">
+    <body class="index-landing-page">
+        <div class="login-card">
+        <div class="login-wrap">
+
+            <div class="login-card-header">
+                <h2>Welcome!</h2>
+            </div>
+            <form action="" class="login-form">
+                <div>
+                    <input type="text" class="field" id="email-login" placeholder="e-mail address" />
+                </div>
+                <div>
+                    <input type="text" class="field" id="password-login" placeholder="password" />
+                </div>
+                <div>
+                    <button type="submit" class="login-btn">Log In With Email</button>
+                </div>
+                <div>
+                    <p class="signup-txt"> -- or -- </p> 
+                </div>
+
+                <div class="g-signin2" data-onsuccess="onSignIn" align="center">
+                    <meta name="google-signin-client_id" content=
+                    "592878734224-1ri6pfkmfslqvnv82ks1bs7n7scaljtn.apps.googleusercontent.com">
+                </div>
+                <div>
+                    <p class="signup-txt">Not a Member Yet? <a href="/signup"</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    </body>
+    
+</div>
+
+{{#if loggedIn}}
+<script src="/js/logout.js"></script>
+{{/if}}
+
+<script src="/js/login.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>

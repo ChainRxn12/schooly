@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="google-signin-client_id" content="592878734224-1ri6pfkmfslqvnv82ks1bs7n7scaljtn.apps.googleusercontent.com">
+  <title>Schooly</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+		<header>
+			<h1>
+				<a href="/"> 🍏 Schooly 🍎 </a>
+			</h1>
+			<nav>
+				<!-- {{#if loggedIn}} -->
+				<a href=""></a>
+				<button id="logout" class="btn-no-style">Logout</button>
+				<!-- {{else}} -->
+				<a href="/login">Login</a>
+				<a href="/signup">Sign Up</a>
+				<!-- {{/if}} -->
+		
+			</nav>    
+		</header>
+		
+		<main>
+			{{{ body }}}
+		</main>
+		
+		<footer>
+      ©️2021 Billy Dorman, Zion Flores, Jafet Manauth, Ricardo Salazar 
+    </footer>
+	</div>
+		
+	{{#if loggedIn}}
+		<script src="/js/logout.js"></script>
+		{{/if}}
+		
+</body>
+	
+</html>

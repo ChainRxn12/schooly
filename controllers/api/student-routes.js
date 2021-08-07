@@ -58,7 +58,7 @@ router.put('/lname/:id', async (req, res) => {
 router.put('/teacher/:id', async (req, res) => {
     //update student's teacher
     try{
-        const updateTeacher = await Student.update({teacher: req.body.new_teacher}, {
+        const updateTeacher = await Student.update({teacher_id: req.body.new_teacher}, {
             where: {
                 id: req.params.id,
             }

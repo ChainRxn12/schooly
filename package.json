@@ -2,39 +2,35 @@
   "name": "schooly",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "auth.js",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.3",
+    "express-session": "^1.17.2",
+    "inquirer": "^8.1.2",
+    "mysql2": "^2.3.0",
+    "nodemon": "^2.0.12",
+    "passport": "^0.4.1",
+    "passport-google-oauth2": "^0.2.0",
+    "sequelize": "^6.6.5",
+    "session": "^0.1.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "seed": "node seeds/index.js",
-    "watch": "nodemon ./server.js localhost 3080"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ChainRxn12/schooly.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ChainRxn12/schooly/issues"
   },
-  "homepage": "https://github.com/ChainRxn12/schooly#readme",
-  "dependencies": {
-    "bcrypt": "^5.0.1",
-    "body-parser": "^1.19.0",
-    "connect-session-sequelize": "^7.1.1",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^5.3.2",
-    "express-session": "^1.17.2",
-    "handlebars": "^4.7.7",
-    "mysql2": "^2.2.5",
-    "nodemon": "^2.0.12",
-    "passport": "^0.4.1",
-    "passport-google-oauth": "^2.0.0",
-    "passport-local": "^1.0.0",
-    "sequelize": "^6.6.5"
-  }
+  "homepage": "https://github.com/ChainRxn12/schooly#readme"
 }
-

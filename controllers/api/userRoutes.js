@@ -1,87 +1,87 @@
 const router = require('express').Router();
 const { Teacher, Grades } = require('../../models');
 
-router.get('/', async (req, res) => {
-  try {
-    // Get all projects and JOIN with user data
-    const projectData = await Grades.findAll({
-      include: [
-        {
-          model: Teacher,
-          attributes: ['username'],
-        },
-      ],
-    });
+// router.get('/', async (req, res) => {
+//   try {
+//     // Get all projects and JOIN with user data
+//     const projectData = await Grades.findAll({
+//       include: [
+//         {
+//           model: Teacher,
+//           attributes: ['username'],
+//         },
+//       ],
+//     });
 
-    // Serialize data so the template can read it
-    const projects = projectData.map((project) => project.get({ plain: true }));
+//     // Serialize data so the template can read it
+//     const projects = projectData.map((project) => project.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      projects, 
-      logged_in: req.session.logged_in 
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     // Pass serialized data and session flag into template
+//     res.render('homepage', { 
+//       projects, 
+//       logged_in: req.session.logged_in 
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
-router.post('/', async (req, res) => {
-    try {
-      const userData = await User.create(req.body);
+// router.post('/', async (req, res) => {
+//     try {
+//       const userData = await User.create(req.body);
   
-      req.session.save(() => {
-        req.session.user_id = userData.id;
-        req.session.logged_in = true;
+//       req.session.save(() => {
+//         req.session.user_id = userData.id;
+//         req.session.logged_in = true;
   
-        res.status(200).json(userData);
-      });
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  });
+//         res.status(200).json(userData);
+//       });
+//     } catch (err) {
+//       res.status(400).json(err);
+//     }
+//   });
   
 
-  router.post('/login', async (req, res) => {
-    try {
-      const userData = await Teacher.findOne({ where: { email: req.body.email } });
+//   router.post('/login', async (req, res) => {
+//     try {
+//       const userData = await Teacher.findOne({ where: { email: req.body.email } });
   
-      if (!userData) {
-        res
-          .status(400)
-          .json({ message: 'Incorrect email or password, please try again' });
-        return;
-      }
+//       if (!userData) {
+//         res
+//           .status(400)
+//           .json({ message: 'Incorrect email or password, please try again' });
+//         return;
+//       }
   
-      const validPassword = await userData.checkPassword(req.body.password);
+//       const validPassword = await userData.checkPassword(req.body.password);
   
-      if (!validPassword) {
-        res
-          .status(400)
-          .json({ message: 'Incorrect email or password, please try again' });
-        return;
-      }
+//       if (!validPassword) {
+//         res
+//           .status(400)
+//           .json({ message: 'Incorrect email or password, please try again' });
+//         return;
+//       }
   
-      req.session.save(() => {
-        req.session.id = userData.id;
-        req.session.logged_in = true;
+//       req.session.save(() => {
+//         req.session.id = userData.id;
+//         req.session.logged_in = true;
         
-        res.json({ user: userData, message: 'You are now logged in!' });
-      });
+//         res.json({ user: userData, message: 'You are now logged in!' });
+//       });
   
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  });
+//     } catch (err) {
+//       res.status(400).json(err);
+//     }
+//   });
   
-  router.post('/logout', (req, res) => {
-    if (req.session.logged_in) {
-      req.session.destroy(() => {
-        res.status(204).end();
-      });
-    } else {
-      res.status(404).end();
-    }
-  });
+//   router.post('/logout', (req, res) => {
+//     if (req.session.logged_in) {
+//       req.session.destroy(() => {
+//         res.status(204).end();
+//       });
+//     } else {
+//       res.status(404).end();
+//     }
+//   });
 
 module.exports = router;

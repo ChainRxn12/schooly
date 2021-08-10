@@ -15,6 +15,8 @@ router.get('/', async (req, res) => {
     }
 });
 
+
+
 router.get('/sensitive', async (req, res) => {
     //populates a roster of all teachers including sensitive information
     try {

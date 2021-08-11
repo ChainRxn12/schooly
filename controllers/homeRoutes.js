@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { Principal, Student, Teacher } = require('../models');
 
-router.get('/test', (req, res) => {
-res.render('teacher')
-})
+// router.get('/test', (req, res) => {
+// res.render('teacher')
+// })
 
 router.get('/', async (req, res) => {
   try {
@@ -44,46 +44,46 @@ router.get('/signup', (req, res) => {
 });
 
 router.get('/dashboard', (req, res) => {
-  // if (! req.session.logged_in) {
-  //   res.redirect('/login');
-  //   return;
-  // }
+  if (! req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
 
   res.render('dashboard')
 });
 
 router.get('/dashboard/principal', (req, res) => {
-  // if (! req.session.logged_in) {
-  //   res.redirect('/login');
-  //   return;
-  // }
+  if (! req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
 
   res.render('principal')
 });
 
 router.get('/dashboard/principal/teacher', (req, res) => {
-  // if (! req.session.logged_in) {
-  //   res.redirect('/login');
-  //   return;
-  // }
+  if (! req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
 
   res.render('alterTeacher')
 });
 
 router.get('/dashboard/principal/teacher/add', (req, res) => {
-  // if (! req.session.logged_in) {
-  //   res.redirect('/login');
-  //   return;
-  // }
+  if (! req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
 
   res.render('addTeacher')
 });
 
 router.get('/dashboard/principal/teacher/remove', async (req, res) => {
-  // if (! req.session.logged_in) {
-  //   res.redirect('/login');
-  //   return;
-  // }
+  if (! req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
   try {
     const dbTeacherData = await Teacher.findAll({});
     
@@ -102,28 +102,52 @@ router.get('/dashboard/principal/teacher/remove', async (req, res) => {
 });
 
 router.get('/dashboard/principal/student', (req, res) => {
-  // if (! req.session.logged_in) {
-  //   res.redirect('/login');
-  //   return;
-  // }
+  if (! req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
 
   res.render('alterStudent')
 });
 
 router.get('/dashboard/teacher', (req, res) => {
-  // if (! req.session.logged_in) {
-  //   res.redirect('/login');
-  //   return;
-  // }
+
+  if (! req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+
 
   res.render('teacher')
 });
 
-router.get('/dashboard/student', (req, res) => {
+router.get('/dashboard/teacher/roster', async (req, res) => {
   // if (! req.session.logged_in) {
   //   res.redirect('/login');
   //   return;
   // }
+  try {
+    const dbStudentData = await Student.findAll({});
+    
+    const students = dbStudentData.map((student) => 
+      student.get({plain:true})
+    );
+
+    res.render('roster', {
+      students,
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+
+});
+
+router.get('/dashboard/student', (req, res) => {
+  if (! req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
 
   res.render('student')
 });

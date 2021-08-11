@@ -5,8 +5,7 @@ async function loginFormHandler(event) {
   const password = document.querySelector('#password-login').value.trim();
 
   if (email && password) {
-    console.log(email, password);
-    const response = await fetch('/api/teacher/login', {
+    const response = await fetch('/api/teachers/login', {
       method: 'post',
       body: JSON.stringify({
         email,
@@ -14,11 +13,9 @@ async function loginFormHandler(event) {
       }),
       headers: { 'Content-Type': 'application/json' },
     });
-
-    console.log(await response.json());
     if (response.ok) {
       //debugger
-      document.location.replace('/api/homepage');
+      document.location.replace('/');
     } else {
       alert((await response.json()).message);
     }

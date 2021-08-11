@@ -8,8 +8,8 @@
                 <ul class="nav">
                     {{#each teachers as |teacher|}}
                     <li class="nav-item">
-                        <button class="roster-btn" id="teacher-btn" onclick="deleteTeacher()">
-                            <a class="nav-link active" href="#" id="{{teacher.id}}">{{teacher.first_name}} {{teacher.last_name}}</a>
+                        <button class="roster-btn" id="delete-btn" value="{{teacher.id}}">
+                            <a class="nav-link active" href="#" id="{{teacher.id}}" value="{{teacher.id}}">{{teacher.first_name}} {{teacher.last_name}}</a>
                         </button>
                     </li>
                     {{/each}}
@@ -28,21 +28,5 @@
         </div>
 </div>
 
-<script>
-    const deleteTeacher = async (event) => {
-    event.preventDefault();
-    const id = document.querySelector('#{{teacher.id}}').value.trim();
-    
-    const response = await fetch(`/api/teachers/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            });
-            if (response.ok) {
-                        alert('Succesfully Removed Teacher Profile');
-                        document.location.replace('/dashboard/principal/teacher/add');
-                    } else {
-                        alert('Unable to Register Teacher.');
-                    }
-</script>
+<script src="/js/removeTeacher.js"></script>
+   

@@ -311,6 +311,18 @@
   .roster-btn {
     width: 250px;
     margin-left: 25px;
+    margin-top: 15px;
+  }
+  .form-line {
+    width: 250px;
+    margin-left: 25px;
+    
+  }
+  .back-btn {
+    width: 250px;
+    margin-left: 25px;
+    margin-top: 15px;
+    background-color: darkred;
   }
 
   #roster-el {

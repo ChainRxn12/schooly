@@ -3,6 +3,48 @@ const {Grades, Student, Teacher} = require('../../models');
 
 // /api/teachers endpoint
 
+router.post('/login', (req, res) => {
+    Teacher.findOne({
+            where: {
+                email: req.body.email
+            }
+        }).then(teacherData => {
+            if (!teacherData) {
+                res.status(400).json({ message: 'No user with that username!' });
+                return;
+            }
+            // const validPassword = teacherData.checkPassword(req.body.password);
+
+            // if (!validPassword) {
+            //     res.status(400).json({ message: 'Incorrect password!' });
+            //     return;
+            // }
+            req.session.save(() => {
+
+                req.session.teacher_id = teacherData.id;
+                req.session.email = teacherData.email;
+                req.session.logged_in = true;
+
+                res.json({ user: teacherData, message: 'You are now logged in!' });
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.status(404).end();
+    }
+  });
+
+
 router.get('/', async (req, res) => {
     //populates a roster of all teachers // excludes sensitive information
     try {

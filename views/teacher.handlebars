@@ -1,5 +1,5 @@
 {{!-- teacher landing page --}}
-<h2> Welcome Back {{ teacher.first_name }}</h2>
+<h2> Welcome Back!</h2>
 <div class="teacher-page" id="teacher">
 
     <body class="teacher-landing-page">
@@ -9,11 +9,18 @@
                 <ul class="nav">
                     <li class="nav-item">
                         <button class="roster-btn" id="roster-btn">
-                            <a class="nav-link active" href="#">Roster</a>
+                            <a class="nav-link active" href="/teachers/rosters">Roster</a>
                         </button>
                     </li>
                     <ul id="roster-el">
-
+                        {{#each students as |student|}}
+                        <li class="nav-item">
+                            <button class="roster-btn">
+                                <a class="nav-link active" href="/teachers/rosters">
+                                {{student.first_name}} {{student.last_name}}</a>
+                            </button>
+                        </li>
+                        {{/each}}
                     </ul>
                 </ul>
             </div>

@@ -35,6 +35,7 @@ Teacher.init(
         password: {
         type: DataTypes.STRING,
         allowNull: false,
+        defaultValue: 'Password1234',
         validate: {
             len: [1],
             },

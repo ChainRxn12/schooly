@@ -1,7 +1,7 @@
 const removeTeacher = async (event) => {
     event.preventDefault();
-    const id = document.querySelector('#{{teacher.id}}').value.trim();
-    
+    const id = event.target.value.trim();
+    console.log(id)
     const response = await fetch(`/api/teachers/${id}`, {
                 method: 'DELETE',
                 headers: {
@@ -10,9 +10,9 @@ const removeTeacher = async (event) => {
             });
             if (response.ok) {
                         alert('Succesfully Removed Teacher Profile');
-                        document.location.replace('/dashboard/principal/teacher/add');
+                        document.location.replace('/dashboard/principal/teacher/remove');
                     } else {
-                        alert('Unable to Register Teacher.');
+                        alert('Unable to Delete Teacher.');
                     }
 
     // if (first_name && last_name && email) {
@@ -37,4 +37,4 @@ const removeTeacher = async (event) => {
     // }
 };
 
-document.getElementById("teacher-btn").addEventListener("click", removeTeacher);
+document.querySelector(".roster-btn").addEventListener("click", removeTeacher);

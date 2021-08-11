@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { Principal, Student, Teacher } = require('../models');
 
-router.get('/test', (req, res) => {
-res.render('teacher')
-})
+// router.get('/test', (req, res) => {
+// res.render('teacher')
+// })
 
 router.get('/', async (req, res) => {
   try {
@@ -117,6 +117,28 @@ router.get('/dashboard/teacher', (req, res) => {
   }
 
   res.render('teacher')
+});
+
+router.get('/dashboard/teacher/roster', async (req, res) => {
+  // if (! req.session.logged_in) {
+  //   res.redirect('/login');
+  //   return;
+  // }
+  try {
+    const dbStudentData = await Student.findAll({});
+    
+    const students = dbStudentData.map((student) => 
+      student.get({plain:true})
+    );
+
+    res.render('roster', {
+      students,
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+
 });
 
 router.get('/dashboard/student', (req, res) => {

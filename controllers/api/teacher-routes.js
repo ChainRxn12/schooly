@@ -3,36 +3,37 @@ const {Grades, Student, Teacher} = require('../../models');
 
 // /api/teachers endpoint
 
-router.post('/login', (req, res) => {
-    Teacher.findOne({
-            where: {
-                email: req.body.email
-            }
-        }).then(teacherData => {
-            if (!teacherData) {
-                res.status(400).json({ message: 'No user with that username!' });
-                return;
-            }
-            // const validPassword = teacherData.checkPassword(req.body.password);
-
-            // if (!validPassword) {
-            //     res.status(400).json({ message: 'Incorrect password!' });
-            //     return;
-            // }
-            req.session.save(() => {
-
-                req.session.teacher_id = teacherData.id;
-                req.session.email = teacherData.email;
-                req.session.logged_in = true;
-
-                res.json({ user: teacherData, message: 'You are now logged in!' });
-            });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
+router.post('/login', async (req, res) => {
+    try {
+      const teacherData = await Teacher.findOne({ where: { email: req.body.email } });
+        console.log(req.body);
+    //   if (!teacherData) {
+    //     res
+    //       .status(400)
+    //       .json({ message: 'Incorrect email or password, please try again' });
+    //     return;
+    //   }
+  
+      const validPassword = await teacherData.checkPassword(req.body.password);
+  
+      if (!validPassword) {
+        res
+          .status(400)
+          .json({ message: 'Incorrect password, please try again' });
+        return;
+      }
+  
+      req.session.save(() => {
+        req.session.teacher_id = teacherData.id;
+        req.session.logged_in = true;
+        
+        res.json({ user: teacherData, message: 'You are now logged in!' });
+      });
+  
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
 
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
@@ -171,8 +172,17 @@ router.put('/password/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try{
-        const makeTeacher = await Teacher.create(req.body);
-        res.status(200).json(makeTeacher);
+        const makeTeacher = await Teacher.create({
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+            password: req.body.password,
+        });
+
+        req.session.save(() => {
+            req.session.logged_in = true;
+            res.status(200).json(makeTeacher);
+        })
     } catch (err) {
         res.status(400).json(err);
     }

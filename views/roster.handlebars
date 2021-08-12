@@ -9,7 +9,7 @@
                     {{#each students as |student|}}
                     <li class="nav-item">
                         <button class="roster-btn">
-                            <a class="nav-link active" href="#" id="{{student.id}}">{{student.first_name}} {{student.last_name}}</a>
+                            <a class="nav-link active" href="/dashboard/teacher/roster/{{student.id}}" id="{{student.id}}">{{student.first_name}} {{student.last_name}}</a>
                         </button>
                     </li>
                     {{/each}}

@@ -12,6 +12,13 @@
       Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: #212121;
   }
+
+  p {
+    font-size: 1em;
+    font-weight: bold;
+    color: darkgreen;
+    
+  }
   
   .wrapper {
     width: 100%;
@@ -251,7 +258,7 @@
     clear: both;
   }
 
-  .modal {
+  /* .modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -286,7 +293,7 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  }
+  } */
   
   footer {
     background-color: #d3d3d3;

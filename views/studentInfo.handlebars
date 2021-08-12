@@ -1,0 +1,28 @@
+<div class="teacher-page" id="teacher">
+
+    <body class="teacher-landing-page">
+        <div class="login-card">
+            <div class="login-card-header">
+                {{!-- add student_id --}}
+                <h2>{{student.first_name}} {{student.last_name}}</h2> 
+                {{!-- math grades --}}
+                <p>Math: {{student.grade.math}}</p>
+                {{!-- history grades --}}
+                <p>History: {{student.grade.history}}</p>
+                {{!-- science grades --}}
+                <p>Science: {{student.grade.science}}</p>
+                {{!-- english grades --}}
+                <p>English: {{student.grade.english}}</p>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <button class="back-btn" id="teacher-btn">
+                            <a class="nav-link active" href="/dashboard/teacher/roster">BACK</a>
+                        </button>
+                    </li>
+                    <ul id="roster-el">
+
+                    </ul>
+                </ul>
+            </div>
+        </div>
+</div>

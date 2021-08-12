@@ -26,48 +26,46 @@ document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
 
-async function onSignIn(googleUser) {
-  console.log(googleUser);
+// async function onSignIn(googleUser) {
+//   console.log(googleUser);
 
-  var profile = googleUser.getBasicProfile();
-  const username = profile.getName();
-  const password = profile.getImageUrl();
-  const email = profile.getEmail();
-  const firstname = profile.getGivenName();
-  const lastname = profile.getFamilyName();
+//   var profile = googleUser.getBasicProfile();
+//   // const username = profile.getName();
+//   const password = profile.getImageUrl();
+//   const email = profile.getEmail();
+//   const first_name = profile.getGivenName();
+//   const last_name = profile.getFamilyName();
 
-  if (username && password && email && firstname && lastname) {
-    const response = await fetch('/api/login', {
-      method: 'post',
-      body: JSON.stringify({
-        username,
-        password,
-        email,
-        firstname,
-        lastname,
-      }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-    if (response.ok) {
-      console.log(response);
-      debugger;
-      document.location.replace('/api/homepage');
-    } else {
-      console.log('hi');
-      const response = await fetch('/api/signup', {
-        method: 'post',
-        body: JSON.stringify({
-          username,
-          password,
-          email,
-          firstname,
-          lastname,
-        }),
-        headers: { 'Content-Type': 'application/json' },
-      });
-      if (response.ok) {
-        document.location.replace('/api/homepage');
-      }
-    }
-  }
-}
+//   if (password && email && first_name && last_name) {
+//     const response = await fetch('/api/login', {
+//       method: 'post',
+//       body: JSON.stringify({
+//         password,
+//         email,
+//         first_name,
+//         last_name,
+//       }),
+//       headers: { 'Content-Type': 'application/json' },
+//     });
+//     if (response.ok) {
+//       console.log(response);
+//       debugger;
+//       document.location.replace('/api/dashboard');
+//     } else {
+//       console.log('hi');
+//       const response = await fetch('/api/signup', {
+//         method: 'post',
+//         body: JSON.stringify({
+//           password,
+//           email,
+//           first_name,
+//           last_name,
+//         }),
+//         headers: { 'Content-Type': 'application/json' },
+//       });
+//       if (response.ok) {
+//         document.location.replace('/api/dashboard');
+//       }
+//     }
+//   }
+// }

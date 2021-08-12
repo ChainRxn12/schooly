@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Principal, Student, Teacher } = require('../models');
+const { Principal, Student, Teacher, Grades } = require('../models');
 
 // router.get('/test', (req, res) => {
 // res.render('teacher')
@@ -143,13 +143,47 @@ router.get('/dashboard/teacher/roster', async (req, res) => {
 
 });
 
-router.get('/dashboard/student', (req, res) => {
+router.get('/dashboard/teacher/roster/:id', async (req, res) => {
   if (! req.session.logged_in) {
     res.redirect('/login');
     return;
   }
+  try {
+    const dbStudentData = await Student.findByPk(req.params.id, {
+      include: [{model: Grades, attributes: ['math', 'history', 'science', 'english']}]
+    });
+    const student = dbStudentData.get({plain:true});
 
-  res.render('student')
+    res.render('studentInfo', {
+      student
+    })
+  } catch(err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
+//get teachers list from student routes
+router.get('/dashboard/student', async (req, res) => {
+    if (! req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+  try {
+    const dbTeacherdata = await Teacher.findAll({});
+    
+    const teachers = dbTeacherdata.map((teacher) => 
+      teacher.get({plain:true})
+    );
+
+    res.render('student', {
+      teachers,
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+
 });
 
 

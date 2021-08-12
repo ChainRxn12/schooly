@@ -19,14 +19,14 @@ const StudentData = [
     id: 3,
     first_name: 'Jafetty',
     last_name: 'Guap',
-    teacher_id: 2,
+    teacher_id: 3,
     //grades: 3,
   },
   {
     id: 4,
     first_name: 'Ricardo',
     last_name: 'akskjsdj',
-    teacher_id: 2,
+    teacher_id: 4,
     //grades: 4,
   },
 ];

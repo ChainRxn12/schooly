@@ -12,22 +12,23 @@
                             <a class="nav-link active" href="/dashboard/teacher/roster">Roster</a>
                         </button>
                     </li>
-                     <li class="nav-item">
-                        <button class="back-btn" id="teacher-btn">
+                    {{#each students as |student|}}
+                    <li class="nav-item">
+                        <button class="roster-btn">
+                            <a class="nav-link active" href="/teachers/rosters">
+                                {{student.first_name}} {{student.last_name}}</a>
+                        </button>
+                    </li>
+                    {{/each}}
+                    <li class="nav-item">
+                        <button class="back-btn">
                             <a class="nav-link active" href="/dashboard">BACK</a>
                         </button>
                     </li>
                     <ul id="roster-el">
-                        {{#each students as |student|}}
-                        <li class="nav-item">
-                            <button class="roster-btn">
-                                <a class="nav-link active" href="/teachers/rosters">
-                                {{student.first_name}} {{student.last_name}}</a>
-                            </button>
-                        </li>
-                        {{/each}}
-                        
+
                     </ul>
+
                 </ul>
             </div>
         </div>

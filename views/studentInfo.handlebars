@@ -4,15 +4,17 @@
         <div class="login-card">
             <div class="login-card-header">
                 {{!-- add student_id --}}
-                <h2>{{student.first_name}} {{student.last_name}}</h2> 
+                <h2>{{student.first_name}} {{student.last_name}}</h2>
+                <p>Click Grade to Update</p>
+                <p>Student ID:</p> <p id="id-student">{{student.id}}</p>
                 {{!-- math grades --}}
-                <p>Math: {{student.grade.math}}</p>
+                <p> <a class="grade" href="" id="math">Math:</a> {{student.grade.math}}</p>
                 {{!-- history grades --}}
-                <p>History: {{student.grade.history}}</p>
+                <p><a class="grade" href="" id="history" >History:</a> {{student.grade.history}}</p>
                 {{!-- science grades --}}
-                <p>Science: {{student.grade.science}}</p>
+                <p><a class="grade" href="" id="science" >Science:</a>  {{student.grade.science}} </p>
                 {{!-- english grades --}}
-                <p>English: {{student.grade.english}}</p>
+                <p><a class="grade" href="" id="english">English:</a> {{student.grade.english}}</p>
                 <ul class="nav">
                     <li class="nav-item">
                         <button class="back-btn" id="teacher-btn">
@@ -26,3 +28,5 @@
             </div>
         </div>
 </div>
+
+<script src="/js/updateGrades.js"></script>

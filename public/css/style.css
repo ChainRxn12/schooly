@@ -347,3 +347,7 @@
   #roster-el a:hover {
     color: #3d7fcf;
   }
+
+  .grade{
+    color: darkred;
+  }

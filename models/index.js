@@ -24,10 +24,10 @@ Grades.belongsTo(Student, {
     // onDelete: 'CASCADE'
 });
 
-Student.hasOne(Grades, {
-    foreignKey: 'student_id',
-    onDelete: 'CASCADE'
-});
+// Student.hasOne(Grades, {
+//     foreignKey: 'student_id',
+//     // onDelete: 'CASCADE'
+// });
 
 
 

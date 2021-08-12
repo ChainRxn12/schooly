@@ -12,6 +12,11 @@
                             <a class="nav-link active" href="/dashboard/teacher/roster">Roster</a>
                         </button>
                     </li>
+                     <li class="nav-item">
+                        <button class="back-btn" id="teacher-btn">
+                            <a class="nav-link active" href="/dashboard">BACK</a>
+                        </button>
+                    </li>
                     <ul id="roster-el">
                         {{#each students as |student|}}
                         <li class="nav-item">
@@ -21,6 +26,7 @@
                             </button>
                         </li>
                         {{/each}}
+                        
                     </ul>
                 </ul>
             </div>

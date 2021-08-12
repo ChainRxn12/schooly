@@ -326,18 +326,12 @@ router.get('/dashboard/student', async (req, res) => {
 
     res.render('student', {
       teachers,
+      logged_in: req.session.logged_in,
     })
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
-
-
-  res.render('student', {
-    logged_in: req.session.logged_in,
-  })
-
-
 });
 
 

@@ -8,20 +8,21 @@ router.post('/login', async (req, res) => {
       const teacherData = await Teacher.findOne({ where: { email: req.body.email } });
         console.log(req.body);
       if (!teacherData) {
+
         res
           .status(400)
           .json({ message: 'Incorrect email or password, please try again' });
         return;
       }
   
-    //   const validPassword = await teacherData.checkPassword(req.body.password);
+       const validPassword = await teacherData.checkPassword(req.body.password);
   
-    //   if (!validPassword) {
-    //     res
-    //       .status(400)
-    //       .json({ message: 'Incorrect password, please try again' });
-    //     return;
-    //   }
+       if (!validPassword) {
+         res
+         .status(400)
+           .json({ message: 'Incorrect password, please try again' });
+         return;
+      }
   
       req.session.save(() => {
         req.session.teacher_id = teacherData.id;

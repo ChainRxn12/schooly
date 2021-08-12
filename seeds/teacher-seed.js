@@ -13,6 +13,18 @@ const teacherData = [
         email: 'jeffthebest@gmail.com',
         password: 'pass1234',
     },
+    {
+        first_name: 'Josh',
+        last_name: 'Slyme',
+        email: 'joshypoo@gmail.com',
+        password: 'pass1234',
+    },
+    {
+        first_name: 'Aaron',
+        last_name: 'Lowery',
+        email: 'aaron43@gmail.com',
+        password: 'pass1234',
+    },
 ];
 
 const seedTeachers = () => Teacher.bulkCreate(teacherData);

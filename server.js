@@ -5,6 +5,7 @@ const sequelize = require("./config/connection");
 const helpers = require("./utils/helpers");
 const passport = require("passport");
 const app = express();
+
 const PORT = process.env.PORT || 3001;
 
 const exphbs = require("express-handlebars");
@@ -42,9 +43,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(passport.initialize());
+passport.authenticate('google', {scope:['email', 'profile']}),
+(req,res)=>{
+};
+app.get('/homepage'
+  ,passport.authenticate('google', {scope: ['email', 'profile']}),
+(req,res)=>{
+     return res.send("Congrats");
+});
 app.use(passport.session());
 
 app.use(routes);
+app.use('/', require('./controllers/index'))
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now Listening localhost:3001"));

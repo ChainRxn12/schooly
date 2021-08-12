@@ -49,7 +49,9 @@ router.get('/dashboard', (req, res) => {
     return;
   }
 
-  res.render('dashboard')
+  res.render('dashboard', {
+    logged_in: req.session.logged_in,
+  })
 });
 
 router.get('/dashboard/principal', (req, res) => {
@@ -58,7 +60,9 @@ router.get('/dashboard/principal', (req, res) => {
     return;
   }
 
-  res.render('principal')
+  res.render('principal', {
+    logged_in: req.session.logged_in,
+  })
 });
 
 router.get('/dashboard/principal/teacher', (req, res) => {
@@ -67,7 +71,9 @@ router.get('/dashboard/principal/teacher', (req, res) => {
     return;
   }
 
-  res.render('alterTeacher')
+  res.render('alterTeacher', {
+    logged_in: req.session.logged_in,
+  })
 });
 
 router.get('/dashboard/principal/teacher/add', (req, res) => {
@@ -76,7 +82,9 @@ router.get('/dashboard/principal/teacher/add', (req, res) => {
     return;
   }
 
-  res.render('addTeacher')
+  res.render('addTeacher', {
+    logged_in: req.session.logged_in,
+  })
 });
 
 router.get('/dashboard/principal/teacher/remove', async (req, res) => {
@@ -93,6 +101,7 @@ router.get('/dashboard/principal/teacher/remove', async (req, res) => {
 
     res.render('removeTeacher', {
       teachers,
+      logged_in: req.session.logged_in,
     })
   } catch (err) {
     console.log(err);
@@ -107,7 +116,9 @@ router.get('/dashboard/principal/student', (req, res) => {
     return;
   }
 
-  res.render('alterStudent')
+  res.render('alterStudent',{
+  logged_in: req.session.logged_in
+  })
 });
 
 router.get('/dashboard/teacher', (req, res) => {
@@ -118,7 +129,9 @@ router.get('/dashboard/teacher', (req, res) => {
   }
 
 
-  res.render('teacher')
+  res.render('teacher', {
+    logged_in: req.session.logged_in,
+  })
 });
 
 router.get('/dashboard/teacher/roster', async (req, res) => {
@@ -135,6 +148,7 @@ router.get('/dashboard/teacher/roster', async (req, res) => {
 
     res.render('roster', {
       students,
+      logged_in: req.session.logged_in,
     })
   } catch (err) {
     console.log(err);
@@ -149,7 +163,9 @@ router.get('/dashboard/student', (req, res) => {
     return;
   }
 
-  res.render('student')
+  res.render('student', {
+    logged_in: req.session.logged_in,
+  })
 });
 
 

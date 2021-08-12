@@ -291,6 +291,7 @@ router.get('/dashboard/teacher/roster', async (req, res) => {
 
 });
 
+//get student grades info through teacher
 router.get('/dashboard/teacher/roster/:id', async (req, res) => {
   if (! req.session.logged_in) {
     res.redirect('/login');
@@ -331,14 +332,32 @@ router.get('/dashboard/student', async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
-
-
-  res.render('student', {
-    logged_in: req.session.logged_in,
-  })
-
-
 });
+
+router.get('/dashboard/student/:id', async (req, res) => {
+  if (! req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+  try {
+    const dbStudentData = await Student.findAll({
+      where: {
+        teacher_id: req.params.id
+      }
+    })
+
+    const students = dbStudentData.map((student) => 
+      student.get({plain:true}));
+    
+    res.render('myStudent', {
+      students
+    })
+  } catch(err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+  
+ })
 
 
 

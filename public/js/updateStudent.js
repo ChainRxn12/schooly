@@ -3,9 +3,9 @@ const updateStudent = async (event) => {
     const firstname = document.querySelector('#first_name').value.trim();
     const lastname = document.querySelector('#last_name').value.trim();
     const id = event.target.value.trim();
-    const teacherId = document.querySelector('#teacher-id').value;
+    const teacher = document.querySelector('#teacher-id-name').value.trim();
 
-    console.log(teacherId)
+    console.log(teacher)
 
     
     if (firstname) {
@@ -37,17 +37,17 @@ const updateStudent = async (event) => {
             }
         });
 
-        if (response.ok && !teacherId) {
+        if (response.ok && !teacher) {
             document.location.replace(`/dashboard/principal/student/update`);
         } else if (!response.ok) {
             alert('Error Updating Last Name');
         }
     }
-    if (teacherId) {
+    if (teacher) {
         const response = await fetch(`/api/students/teacher/${id}`, {
             method: 'PUT',
             body: JSON.stringify({
-                "new_teacher": `${teacherId}`,
+                "new_teacher": `${teacher}`,
             }),
             headers: {
                 'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ const updateStudent = async (event) => {
         } else if (!response.ok) {
             alert('Error Updating email');
         }
-    } else if (!firstname && !lastname && !teacherId){
+    } else if (!firstname && !lastname && !teacher){
         alert('Please Fill out Fields!')
     }
 };

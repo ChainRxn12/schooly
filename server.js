@@ -29,6 +29,8 @@ app.use(
   })
 );
  
+// //load passport strategies
+// require('./config/passport/passport.js')(passport, models.teacher);
 
 
 // app.use(session(sess));

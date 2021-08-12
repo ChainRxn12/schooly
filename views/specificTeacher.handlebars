@@ -1,0 +1,46 @@
+<div class="teacher-page" id="teacher">
+
+    <body class="teacher-landing-page">
+        <div class="login-card">
+            <div class="login-card-header">
+                <h2>Update Teacher Information</h2>
+                <form>
+                <ul class="nav">
+                    <li class="nav-item" id="teacher-id" >
+                        <label for="first_name" class="form-line"> Update First Name:</label>
+                        <input type="text" id="first_name" name="first_name" class="form-line" placeholder="{{teacher.first_name}}">
+                    </li>
+                     <li class="nav-item">
+                        <label for="last_name" class="form-line"> Update Last Name:</label>
+                        <input type="text" id="last_name" name="last_name" class="form-line" placeholder="{{teacher.last_name}}">
+                    </li>
+                     <li class="nav-item">
+                        <label for="email" class="form-line"> Update Email:</label>
+                        <input type="text" id="email" name="email" class="form-line" placeholder="{{teacher.email}}">
+                    </li>
+                    <li>
+                        <p class="form-line" >Update Password:</p>
+                         <input type="password" id="password" name="password" class="form-line" >
+                    </li>
+                    <li class="nav-item">
+                        <button class="roster-btn" id="submit-btn" value="{{teacher.id}}">
+                            <a class="nav-link active">Submit</a>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="back-btn" id="teacher-btn">
+                            <a class="nav-link active" href="/dashboard/principal/teacher/update">BACK</a>
+                        </button>
+                    </li>
+                   
+                   
+                    <ul id="roster-el">
+
+                    </ul>
+                </ul>
+                </form>
+            </div>
+        </div>
+</div>
+
+<script src="/js/updateTeacher.js"></script>

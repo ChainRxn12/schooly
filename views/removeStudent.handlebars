@@ -3,20 +3,20 @@
     <body class="teacher-landing-page">
         <div class="login-card">
             <div class="login-card-header">
-                <h2>Remove Teacher</h2>
+                <h2>Remove Student</h2>
                 
                 <ul class="nav">
-                    {{#each teachers as |teacher|}}
+                    {{#each students as |student|}}
                     <li class="nav-item">
-                        <button class="roster-btn" id="delete-btn" value="{{teacher.id}}">
-                            <a class="nav-link active" href="#" id="{{teacher.id}}" value="{{teacher.id}}">{{teacher.first_name}} {{teacher.last_name}}</a>
+                        <button class="roster-btn" id="delete-btn" value="{{student.id}}">
+                            <a class="nav-link active" href="#" id="{{student.id}}" value="{{student.id}}">{{student.first_name}} {{student.last_name}}</a>
                         </button>
                     </li>
                     {{/each}}
 
                     <li class="nav-item">
                         <button class="back-btn" id="teacher-btn">
-                            <a class="nav-link active" href="/dashboard/principal/teacher">BACK</a>
+                            <a class="nav-link active" href="/dashboard/principal/student">BACK</a>
                         </button>
                     </li>
                     <ul id="roster-el">
@@ -28,4 +28,4 @@
         </div>
 </div>
 
-<script src="/js/removeTeacher.js"></script>
+<script src="/js/removeStudent.js"></script>

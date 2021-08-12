@@ -1,16 +1,16 @@
-const createTeacher = async (event) => {
+const createStudent = async (event) => {
     event.preventDefault();
     const firstname = document.querySelector('#first_name').value.trim();
     const lastname = document.querySelector('#last_name').value.trim();
-    const email = document.querySelector('#email').value.trim();
+    const teacher = document.querySelector('#teacher-id').value.trim();
 
-    if (firstname && lastname && email) {
-        const response = await fetch('/api/teachers/', {
+    if (firstname && lastname && teacher) {
+        const response = await fetch('/api/students/', {
             method: 'POST',
             body: JSON.stringify({
                 "first_name": firstname,
                 "last_name": lastname,
-                "email": email
+                "teacher_id": teacher
             }),
             headers: {
                 'Content-Type': 'application/json',
@@ -18,14 +18,14 @@ const createTeacher = async (event) => {
         });
 
         if (response.ok) {
-            alert('Succesfully Added Teacher Profile');
-            document.location.replace('/dashboard/principal/teacher/add');
+            alert('Succesfully Added Student');
+            document.location.replace('/dashboard/principal/Student/add');
         } else {
-            alert('Unable to Register Teacher.');
+            alert('Unable to Register Student.');
         }
     } else {
         alert('Please fill out all fields!');
     }
 };
 
-document.getElementById("submit-btn").addEventListener("click", createTeacher)
+document.getElementById("submit-btn").addEventListener("click", createStudent)

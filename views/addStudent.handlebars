@@ -1,0 +1,47 @@
+<div class="teacher-page" id="teacher">
+
+    <body class="teacher-landing-page">
+        <div class="login-card">
+            <div class="login-card-header">
+                <h2>Add Student</h2>
+                <form>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <label for="first_name" class="form-line"> First Name:</label>
+                        <input type="text" id="first_name" name="first_name" class="form-line">
+                    </li>
+                     <li class="nav-item">
+                        <label for="last_name" class="form-line"> Last Name:</label>
+                        <input type="text" id="last_name" name="last_name" class="form-line">
+                    </li>
+                    <li>
+                        <label for="teachers" class="form-line" ></label>
+                        <select name="teachers" id="teacher-id" class="form-line">
+                        <option value="" hidden>Choose a Teacher</option>
+                        {{#each teachers as |teacher|}}
+                        <option  value="{{teacher.id}}">{{teacher.first_name}} {{teacher.last_name}}</option>
+                        {{/each}}
+                        </select>
+                    </li>
+                    <li class="nav-item">
+                        <button class="roster-btn" id="submit-btn">
+                            <a class="nav-link active">Submit</a>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="back-btn" id="teacher-btn">
+                            <a class="nav-link active" href="/dashboard/principal/student">BACK</a>
+                        </button>
+                    </li>
+                   
+                   
+                    <ul id="roster-el">
+
+                    </ul>
+                </ul>
+                </form>
+            </div>
+        </div>
+</div>
+
+<script src="/js/addStudent.js"></script>

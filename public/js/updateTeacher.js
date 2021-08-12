@@ -19,6 +19,7 @@ const updateTeacher = async (event) => {
         });
 
         if (response.ok && !lastname && !email && !password) {
+            
             document.location.replace(`/dashboard/principal/teacher/update`);
 
         } else if (!response.ok) {

@@ -1,3 +1,5 @@
+
+
 const removeTeacher = async (event) => {
     event.preventDefault();
     const id = event.target.value.trim();

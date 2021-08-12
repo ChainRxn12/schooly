@@ -101,6 +101,50 @@ router.get('/dashboard/principal/teacher/remove', async (req, res) => {
 
 });
 
+router.get('/dashboard/principal/teacher/update', async (req, res) => {
+  if (! req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+  try {
+    const dbTeacherData = await Teacher.findAll({});
+    
+    const teachers = dbTeacherData.map((teacher) => 
+      teacher.get({plain:true})
+    );
+
+    res.render('updateTeacher', {
+      teachers,
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+
+});
+
+router.get('/dashboard/principal/teacher/update/:id', async (req, res) => {
+  if (! req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+  try {
+    const dbTeacherData = await Teacher.findByPk(req.params.id, {});
+    
+    const teacher = dbTeacherData.get({plain:true});
+
+    res.render('specificTeacher', {
+     teacher,
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+
+});
+
+
+
 router.get('/dashboard/principal/student', (req, res) => {
   if (! req.session.logged_in) {
     res.redirect('/login');
@@ -109,6 +153,98 @@ router.get('/dashboard/principal/student', (req, res) => {
 
   res.render('alterStudent')
 });
+
+router.get('/dashboard/principal/student/add', async (req, res) => {
+  if (! req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+  try {
+    const dbTeacherData = await Teacher.findAll({});
+    
+    const teachers = dbTeacherData.map((teacher) => 
+      teacher.get({plain:true})
+    );
+
+    res.render('addStudent', {
+      teachers,
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/dashboard/principal/student/remove', async (req, res) => {
+  if (! req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+  try {
+    const dbStudentData = await Student.findAll({});
+    
+    const students = dbStudentData.map((student) => 
+      student.get({plain:true})
+    );
+
+    res.render('removeStudent', {
+      students,
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+
+});
+
+router.get('/dashboard/principal/student/update', async (req, res) => {
+  if (! req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+  try {
+    const dbStudentData = await Student.findAll({});
+    
+    const students = dbStudentData.map((student) => 
+      student.get({plain:true})
+    );
+
+    res.render('updateStudent', {
+      students,
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+
+});
+
+router.get('/dashboard/principal/student/update/:id', async (req, res) => {
+  if (! req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+  try {
+    const dbStudentData = await Student.findByPk(req.params.id, {
+      include: [{model:Teacher, attributes: ['first_name']}]
+    });
+    const student = dbStudentData.get({plain:true});
+
+    const dbTeacherData = await Teacher.findAll({});
+    const teachers = dbTeacherData.map((teacher) => 
+      teacher.get({plain:true})
+    );
+
+    res.render('specificStudent', {
+     student,
+     teachers
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 
 router.get('/dashboard/teacher', (req, res) => {
   if (! req.session.logged_in) {

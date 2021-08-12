@@ -1,0 +1,29 @@
+<div class="teacher-page" id="teacher">
+
+    <body class="teacher-landing-page">
+        <div class="login-card">
+            <div class="login-card-header">
+                <h2>Choose Teacher</h2>
+                
+                <ul class="nav">
+                    {{#each teachers as |teacher|}}
+                    <li class="nav-item">
+                        <button class="roster-btn" id="delete-btn" value="{{teacher.id}}">
+                            <a class="nav-link active" href="/dashboard/principal/teacher/update/{{teacher.id}}" value="{{teacher.id}}">{{teacher.first_name}} {{teacher.last_name}}</a>
+                        </button>
+                    </li>
+                    {{/each}}
+
+                    <li class="nav-item">
+                        <button class="back-btn" id="teacher-btn">
+                            <a class="nav-link active" href="/dashboard/principal/teacher">BACK</a>
+                        </button>
+                    </li>
+                    <ul id="roster-el">
+
+                    </ul>
+                </ul>
+                
+            </div>
+        </div>
+</div>

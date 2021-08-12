@@ -167,6 +167,9 @@
     margin-right: auto;
     margin-bottom: 25px;
   }
+  .form-line {
+    text-align: center;
+  }
   
   .field:focus {
     border: 2px solid rgba(0, 0, 0, 0.1);

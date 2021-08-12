@@ -1,0 +1,31 @@
+<div class="teacher-page" id="teacher">
+
+    <body class="teacher-landing-page">
+        <div class="login-card">
+            <div class="login-card-header">
+                <h2>Remove Student</h2>
+                
+                <ul class="nav">
+                    {{#each students as |student|}}
+                    <li class="nav-item">
+                        <button class="roster-btn" id="delete-btn" value="{{student.id}}">
+                            <a class="nav-link active" href="#" id="{{student.id}}" value="{{student.id}}">{{student.first_name}} {{student.last_name}}</a>
+                        </button>
+                    </li>
+                    {{/each}}
+
+                    <li class="nav-item">
+                        <button class="back-btn" id="teacher-btn">
+                            <a class="nav-link active" href="/dashboard/principal/student">BACK</a>
+                        </button>
+                    </li>
+                    <ul id="roster-el">
+
+                    </ul>
+                </ul>
+                
+            </div>
+        </div>
+</div>
+
+<script src="/js/removeStudent.js"></script>
